@@ -1,6 +1,6 @@
-const { nanoid } = require('nanoid')
+
 const { db } = require('../db/config')
-const User = require('../db/tables/user')
+import User from "../db/tables/user"
 
 class UsersService {
   async getAll() {
@@ -20,4 +20,4 @@ class UsersService {
     return this.getOneBy('id', id)
   }
 }
-module.exports = new UsersService()
+export = new UsersService()

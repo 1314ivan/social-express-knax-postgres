@@ -1,9 +1,8 @@
-const { getOne } = require('../services/sessions')
-
-module.exports = async (req, res, next) => {
+import { getOne }  from '../services/sessions'
+export = async (req, res, next) => {
   try {
-    console.log(req.cookies)
     const sessionId = req.cookies['sessionId']
+  
     if (!sessionId) throw new Error('no sessionId')
     const user = await getOne(sessionId)
     if (!user) throw new Error('no user by sessionId')

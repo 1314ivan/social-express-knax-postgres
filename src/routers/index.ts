@@ -1,6 +1,6 @@
 const sessionChecker = require('../middleware/sessionChecker') 
 
-module.exports = function (app) {
+export = function (app) {
   const commonApi = [
    "common",
    "auth"

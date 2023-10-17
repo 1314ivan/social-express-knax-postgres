@@ -3,4 +3,4 @@ class CommonService {
     return 'OK'
   }
 }
-module.exports = new CommonService()
+export = new CommonService()

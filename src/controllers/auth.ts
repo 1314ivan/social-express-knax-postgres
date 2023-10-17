@@ -3,7 +3,7 @@ const CreateUserDto = require('../dto/users/createUser')
 const authService = require('../services/auth')
 const sessions = require('../services/sessions')
 
-module.exports = class AuthController {
+export  class AuthController {
   static async login(req, res) {
     try {
       const sessionId = await authService.login(new LoginDto(req.body), res)

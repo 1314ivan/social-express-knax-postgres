@@ -1,5 +1,5 @@
-require('dotenv').config()
-
+import dotenv from 'dotenv'
+dotenv.config()
 const config = {
   client: 'pg',
   connection: {
@@ -14,6 +14,7 @@ const config = {
   }
 }
 
-const db = require('knex')(config)
+import knex from 'knex'
+const db = knex(config)
 
-module.exports = { db, config }
+export = { db, config }

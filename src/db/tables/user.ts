@@ -1,4 +1,4 @@
-module.exports = class User {
+export = class User {
   constructor(data) {
     if (!data) return
 

@@ -1,10 +1,12 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-const cors = require('cors')
+import express from 'express'
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
+import dotenv from 'dotenv'
 const app = express()
 const port = process.env.port || 3000
-require('dotenv').config()
+
+dotenv.config()
 
 app.use(bodyParser.json({ limit: '10mb' }))
 app.use(cookieParser())
@@ -16,9 +18,8 @@ app.use(
 )
 app.use(cors())
 require('./routers')(app)
-app.use((err, req, res)=>{
-  console.log("ssss")
-
+app.use((err, req, res) => {
+  console.log('ssss')
 })
 
 app.listen(port, () => {

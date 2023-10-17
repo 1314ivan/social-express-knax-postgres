@@ -1,6 +1,6 @@
 const timersService = require('../services/timers')
 
-class TimersController {
+export  class TimersController {
   static async getAll(req, res) {
     try {
       const timers = timersService.getAll()
@@ -34,4 +34,4 @@ class TimersController {
     }
   }
 }
-module.exports = TimersController
+

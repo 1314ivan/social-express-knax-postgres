@@ -36,4 +36,4 @@ const stopTimer = timerName => {
   existedTimer.stopTimer()
   return existedTimer.get()
 }
-module.exports = { getOne, createTimer, stopTimer, getAll }
+export = { getOne, createTimer, stopTimer, getAll }

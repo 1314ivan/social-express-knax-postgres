@@ -1,6 +1,6 @@
 const usersService = require('../services/users')
 
-class UsersController {
+export class UsersController {
   static async getAll(req, res) {
     try {
       const users = await usersService.getAll()
@@ -22,4 +22,4 @@ class UsersController {
     }
   }
 }
-module.exports = UsersController
+
