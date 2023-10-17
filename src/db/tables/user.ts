@@ -1,4 +1,4 @@
-export = class User {
+export class User {
   constructor(data) {
     if (!data) return
 
@@ -9,9 +9,9 @@ export = class User {
     this.password = data.password
   }
 
-  id
-  login
-  password
+  id : number
+  login: string
+  private password : string
 
   get() {
     return { id: this.id, login: this.login }

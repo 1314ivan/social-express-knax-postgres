@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 const data = {}
 
-export async function createSessions(user) {
+export async function createSessions(user): Promise<string> {
   const sessionId = nanoid()
   data[sessionId] = user
   return sessionId

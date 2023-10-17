@@ -1,18 +1,18 @@
-
 const { db } = require('../db/config')
-import User from "../db/tables/user"
+import { User } from '../db/tables/user'
 
 class UsersService {
   async getAll() {
     const users = await db.select().table('users')
     return users
   }
-  async getOneBy(by, value) {
+  async getOneBy(by: 'login' | 'id', value: string | number): Promise<User> {
     const user = await db
       .select()
       .table('users')
       .where({ [by]: value })
       .then(data => data[0])
+    console.log(new User(user))
     return user ? new User(user) : null
   }
   async createOne(dto) {

@@ -8,7 +8,8 @@ class Timer {
   end
   duration
   get() {
-    const duration = this.end ? this.end - this.start : new Date() - this.start
+    // todo
+    const duration = this.end - this.start
     return { ...this, duration }
   }
   stopTimer() {
@@ -16,9 +17,9 @@ class Timer {
     this.end = new Date()
   }
 }
-const data = {}
+const data: {} = {}
 const getAll = () => {
-  return Object.values(data).map(timer => timer.get())
+  return Object.values(data).map(timer => (timer as Timer).get())
 }
 const getOne = timerName => {
   const existedTimer = data[timerName]
