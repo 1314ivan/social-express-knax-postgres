@@ -1,6 +1,6 @@
 const usersService = require('./users')
 const sessions = require('./sessions')
-
+const { db } = require('../db/config')
 class AuthService {
   async login(dto) {
     const user = await usersService.getOneBy('login', dto.login)
@@ -9,6 +9,7 @@ class AuthService {
     return sessions.createSessions(user)
   }
   async register(dto) {
+    const users = await db.select().table('users')
     const existedUser = await usersService.getOneBy('login', dto.login)
     if (existedUser) throw new Error('Данный логин уже занят')
     const newUser = await usersService.createOne(dto)

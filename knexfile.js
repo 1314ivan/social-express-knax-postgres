@@ -1,0 +1,7 @@
+
+module.exports = require('./src/db/config').config
+
+
+
+
+

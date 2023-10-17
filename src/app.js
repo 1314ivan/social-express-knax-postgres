@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const app = express()
 const port = process.env.port || 3000
-
+require('dotenv').config()
 
 app.use(bodyParser.json({ limit: '10mb' }))
 app.use(cookieParser())
