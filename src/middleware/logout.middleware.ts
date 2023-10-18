@@ -1,10 +1,11 @@
 import { delOne as sessionsDelOne } from '../services/sessions.services'
-export = async (req, res, next) => {
+import { Request, Response, NextFunction } from 'express'
+export = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const sessionId = req.cookies['sessionId']
     if (sessionId) await sessionsDelOne(sessionId)
     next()
   } catch (error) {
-    res.clearCookie('sessionId').send(error.message).status(403)
+    res.clearCookie('sessionId').status(403)
   }
 }

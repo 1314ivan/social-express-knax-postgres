@@ -7,4 +7,4 @@ import logout from '../../middleware/logout.middleware'
 export = router
   .post('/login', logout, AuthController.login)
   .post('/register', logout, AuthController.register)
-  .delete('/logout', sessionChecker, AuthController.logout)
+  .delete('/logout', sessionChecker as any, AuthController.logout as any)

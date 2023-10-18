@@ -1,11 +1,12 @@
+import { IUserSession } from "src/interface/userSesion.dto";
 import { DefaultKeys } from "../defaultKeys";
 
 export class Session extends DefaultKeys {
-  constructor(data){
+  constructor(data: Session){
     super()
     Object.assign(this, data)
   }
-  data: JSON
-  user_id: number
-  session_id: string
+  data!: IUserSession
+  user_id!: number
+  session_id!: string
 }

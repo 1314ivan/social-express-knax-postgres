@@ -1,14 +1,18 @@
+import { IRequestSession } from 'src/interface/requestSession'
+import { Request, Response, NextFunction } from 'express'
 import { getOne } from '../services/sessions.services'
-export = async (req, res, next) => {
+import { IUserSession } from 'src/interface/userSesion.dto'
+export = async (req: IRequestSession, res: Response, next: NextFunction): Promise<void> => {
   try {
     const sessionId = req.cookies['sessionId']
     if (!sessionId) throw new Error('no sessionId')
-    const user = await getOne(sessionId)
+    const user:IUserSession = await getOne(sessionId)
     if (!user) throw new Error('no user by sessionId')
+   
     req.user = user
     req.sessionId = sessionId
     next()
   } catch (error) {
-    res.clearCookie('sessionId').send(error.message).status(403)
+    res.clearCookie('sessionId').send().status(403)
   }
 }

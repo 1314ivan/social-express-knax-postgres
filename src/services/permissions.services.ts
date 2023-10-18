@@ -7,7 +7,7 @@ class PermissionsService {
   //   const [ role ] = await db('roles').insert(new CreateRoleDto(dto)).returning('*')
   //   return role
   // }
-  async getAllByRoles(role_id) {
+  async getAllByRoles(role_id: number) {
     const permissions = await db
       .select([
         `permissions.id`,

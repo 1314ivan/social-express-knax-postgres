@@ -2,15 +2,16 @@ import { nanoid } from 'nanoid'
 import { Session } from '../db/tables/session.entity'
 import db from '../db/config'
 import permissionsService from './permissions.services'
-const maxConnect = +process.env.MAX_CONNECT || 5
-export async function createSessions(user): Promise<string> {
+import { IGetUser } from '../db/tables/user.entity'
+import { IPermissionSessions } from '../interface/permissionSessions'
+const maxConnect = process.env.MAX_CONNECT || 5
+export async function createSessions(user: IGetUser): Promise<string> {
   const permissions = await permissionsService.getAllByRoles(user.role_id)
-
-  user.permissions = Object.fromEntries(
+  const permissionsSession :{ [key: string]: IPermissionSessions }[]  = Object.fromEntries(
     permissions.map(el => [el.router_code, { GET: el.GET, POST: el.POST, PATCH: el.PATCH, DELETE: el.DELETE }])
   )
   const [{ session_id }] = await db('sessions')
-    .insert(new Session({ session_id: nanoid(), data: user, user_id: user.id }))
+    .insert(new Session({ session_id: nanoid(), data:{...user, permissions: permissionsSession} , user_id: user.id }))
     .returning('session_id')
   const { sessionsUserCount } = await db
     .select()
@@ -18,12 +19,12 @@ export async function createSessions(user): Promise<string> {
     .count('*', { as: 'sessionsUserCount' })
     .where({ user_id: user.id })
     .then(data => data[0])
-  if (+sessionsUserCount > maxConnect) {
+  if (sessionsUserCount > maxConnect) {
     const sessionsOld = await db
       .select()
       .table('sessions')
       .where({ user_id: user.id })
-      .limit(+sessionsUserCount - maxConnect)
+      .limit(+sessionsUserCount - +maxConnect)
       await  db('sessions').delete().whereIn('id', sessionsOld.map(el=>el.id))
   }
   
