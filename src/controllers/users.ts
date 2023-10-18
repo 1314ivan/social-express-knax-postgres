@@ -1,4 +1,4 @@
-const usersService = require('../services/users')
+import usersService from '../services/users'
 
 export class UsersController {
   static async getAll(req, res) {
