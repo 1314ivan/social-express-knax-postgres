@@ -1,6 +1,7 @@
 import express from 'express'
 const router = express.Router()
 import {UsersController} from '../../controllers/users'
+import rbac from '../../middleware/rbac'
 
 
-export = router.get('/', UsersController.getAll).get('/:id', UsersController.getOneById)
+export = router.get('/',rbac, UsersController.getAll).get('/:id', UsersController.getOneById)

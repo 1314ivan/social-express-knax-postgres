@@ -12,7 +12,6 @@ class UsersService {
       .table('users')
       .where({ [by]: value })
       .then(data => data[0])
-    console.log(new User(user))
     return user ? new User(user) : null
   }
   async createOne(dto) {

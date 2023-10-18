@@ -11,4 +11,13 @@ export class RolesController {
       res.status(401).send(err.message)
     }
   }
+  static async getOne(req, res) {
+    try {
+      const dto = new CreateRoleDto(req.body)
+      const newRole = await roleService.create(dto)
+      res.status(200).send(newRole)
+    } catch (err) {
+      res.status(401).send(err.message)
+    }
+  }
 }
