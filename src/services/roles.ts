@@ -10,7 +10,7 @@ class RolesService {
   async getOne(by: 'code' | 'id', value: string | number){
     const role = await db
       .select()      
-      .table('role')
+      .table('roles')
       .where({ [by]: value })
       .then(data => data[0])
     return role ? new Role(role) : null

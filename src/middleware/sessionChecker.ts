@@ -2,7 +2,6 @@ import { getOne }  from '../services/sessions'
 export = async (req, res, next) => {
   try {
     const sessionId = req.cookies['sessionId']
-  
     if (!sessionId) throw new Error('no sessionId')
     const user = await getOne(sessionId)
     if (!user) throw new Error('no user by sessionId')

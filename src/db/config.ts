@@ -1,10 +1,6 @@
 import dotenv from 'dotenv'
 import knex from 'knex'
 dotenv.config()
-
-
-
-
 export = knex({
   client: 'pg',
   connection: {
