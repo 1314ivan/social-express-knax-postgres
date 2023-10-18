@@ -1,4 +1,4 @@
-import { getOne }  from '../services/sessions'
+import { getOne } from '../services/sessions.services'
 export = async (req, res, next) => {
   try {
     const sessionId = req.cookies['sessionId']

@@ -1,6 +1,6 @@
 import db from '../db/config'
-import { User } from '../db/tables/user'
-import rolesService from './roles'
+import { User } from '../db/tables/user.entity'
+import rolesService from './roles.services'
 
 class UsersService {
   async getAll() {

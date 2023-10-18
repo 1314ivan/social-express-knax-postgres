@@ -1,5 +1,5 @@
 
-import commonService from '../services/common'
+import commonService from '../services/common.services'
 
 
 export  class CommonController {

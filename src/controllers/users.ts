@@ -1,4 +1,4 @@
-import usersService from '../services/users'
+import usersService from '../services/users.services'
 
 export class UsersController {
   static async getAll(req, res) {
@@ -22,4 +22,3 @@ export class UsersController {
     }
   }
 }
-

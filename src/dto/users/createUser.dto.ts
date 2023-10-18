@@ -1,4 +1,4 @@
-import LoginDto from "../auth/login"
+import LoginDto from "../auth/login.dto"
 
 export = class CreateUserDto extends LoginDto {
   constructor(data) {

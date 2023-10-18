@@ -1,4 +1,4 @@
-import { delOne as sessionsDelOne } from '../services/sessions'
+import { delOne as sessionsDelOne } from '../services/sessions.services'
 export = async (req, res, next) => {
   try {
     const sessionId = req.cookies['sessionId']

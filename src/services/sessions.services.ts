@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
-import { Session } from '../db/tables/session'
+import { Session } from '../db/tables/session.entity'
 import db from '../db/config'
-import permissionsService from './permissions'
+import permissionsService from './permissions.services'
 const maxConnect = +process.env.MAX_CONNECT || 5
 export async function createSessions(user): Promise<string> {
   const permissions = await permissionsService.getAllByRoles(user.role_id)

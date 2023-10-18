@@ -1,5 +1,5 @@
-import { CreateRoleDto } from '../dto/roles/createRole'
-import roleService from '../services/roles'
+import { CreateRoleDto } from '../dto/roles/createRole.dto'
+import roleService from '../services/roles.services'
 
 export class RolesController {
   static async create(req, res) {
