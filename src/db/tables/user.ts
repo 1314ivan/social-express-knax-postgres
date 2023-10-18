@@ -1,7 +1,6 @@
 export class User {
   constructor(data) {
     if (!data) return
-
     if (data.id) {
       this.id = data.id
     }
@@ -9,7 +8,7 @@ export class User {
     this.password = data.password
   }
 
-  id : number
+  id : number         
   login: string
   private password : string
 

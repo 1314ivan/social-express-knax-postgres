@@ -1,4 +1,4 @@
-const { db } = require('../db/config')
+import  db  from '../db/config'
 import { User } from '../db/tables/user'
 
 class UsersService {
@@ -8,7 +8,7 @@ class UsersService {
   }
   async getOneBy(by: 'login' | 'id', value: string | number): Promise<User> {
     const user = await db
-      .select()
+      .select()      
       .table('users')
       .where({ [by]: value })
       .then(data => data[0])

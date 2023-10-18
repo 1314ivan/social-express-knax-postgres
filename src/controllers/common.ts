@@ -1,4 +1,6 @@
-const commonService = require('../services/common')
+
+import commonService from '../services/common'
+
 
 export  class CommonController {
   static async ping(req, res) {
