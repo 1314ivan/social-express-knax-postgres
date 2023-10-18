@@ -3,8 +3,8 @@ import { CreateRoleDto } from '../dto/roles/createRole'
 
 class RolesService {
   async create(dto: CreateRoleDto) {
-    const [{ id }] = await db('role').insert(new CreateRoleDto(dto)).returning('id')
-    return id
+    const [ role ] = await db('roles').insert(new CreateRoleDto(dto)).returning('*')
+    return role
   }
 }
 export = new RolesService()

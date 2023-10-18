@@ -1,8 +1,6 @@
 import { nanoid } from 'nanoid'
 import { Session } from '../db/tables/session'
 import db from '../db/config'
-import { User } from 'src/db/tables/user'
-const data = {}
 
 export async function createSessions(user): Promise<string> {
   const [{ session_id }] = await db('sessions')
@@ -16,12 +14,8 @@ export async function getOne(session_id: string) {
     .table('sessions')
     .where({ session_id })
     .then(data => data[0])
-
   return data
 }
-export async function delOne(sessionId) {
-
-  delete data[sessionId] 
+export async function delOne(session_id: string) {
+  return db('sessions').delete().where({session_id})
 }
-
-// export = { createSessions, getOne, delOne }

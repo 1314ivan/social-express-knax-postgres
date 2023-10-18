@@ -6,9 +6,9 @@ export class RolesController {
     try {
       const dto = new CreateRoleDto(req.body)
       const newRole = await roleService.create(dto)
-      res.send(newRole).status(200)
+      res.status(200).send(newRole)
     } catch (err) {
-      res.send(err.message).status(401)
+      res.status(401).send(err.message)
     }
   }
 }
