@@ -8,6 +8,7 @@ import { resError } from '../utils/resError'
 export class AuthController {
   static async login(req: Request, res: Response): Promise<void> {
     try {
+        // #swagger.description = 'Some description...'
       const sessionId = await authService.login(new LoginDto(req.body))
       res.cookie('sessionId', sessionId).status(200).send('ok')
     } catch (err) {
