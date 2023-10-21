@@ -1,17 +1,26 @@
 {
-  "exclude": ["seeds"],
+  "exclude": ["seeds/*",""],
   "compilerOptions": {
 
-    "removeComments": true,
-
-
-    "allowSyntheticDefaultImports": true,
+    // "removeComments": true,
+    "paths": {
+      "@app/*": ["src/*"]
+    },
+    // "moduleResolution": "node",
+    // "module": "commonjs",
+    // "declaration": true,
+    // "allowSyntheticDefaultImports": true,
     "strict": true,
     "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": ".",
-"sourceMap": true,
+    "sourceMap": true,
+    "incremental": true,
+      "lib": [ 
+    "ES2020",  
+    "DOM"
+  ]
   },
   
 

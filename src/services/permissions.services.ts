@@ -24,4 +24,4 @@ class PermissionsService {
     return permissions
   }
 }
-export = new PermissionsService()
+export default  new PermissionsService()

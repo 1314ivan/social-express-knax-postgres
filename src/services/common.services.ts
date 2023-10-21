@@ -3,4 +3,4 @@ class CommonService {
     return 'OK'
   }
 }
-export = new CommonService()
+export default new CommonService()

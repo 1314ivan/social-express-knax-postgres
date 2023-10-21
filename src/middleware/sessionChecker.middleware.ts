@@ -2,7 +2,7 @@ import { IRequestSession } from 'src/interface/requestSession'
 import { Request, Response, NextFunction } from 'express'
 import { getOne } from '../services/sessions.services'
 import { IUserSession } from 'src/interface/userSesion.dto'
-export = async (req: IRequestSession, res: Response, next: NextFunction): Promise<void> => {
+export default async (req: IRequestSession, res: Response, next: NextFunction): Promise<void> => {
   try {
     const sessionId = req.cookies['sessionId']
     if (!sessionId) throw new Error('no sessionId')

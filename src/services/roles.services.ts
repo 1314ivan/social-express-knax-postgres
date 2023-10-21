@@ -16,4 +16,4 @@ class RolesService {
     return role ? new Role(role) : null
   }
 }
-export = new RolesService()
+export default new RolesService()

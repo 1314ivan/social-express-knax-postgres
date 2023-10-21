@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { IRequestSession } from '../interface/requestSession'
-export = async (req: IRequestSession, res: Response, next: NextFunction) => {
+export default async (req: IRequestSession, res: Response, next: NextFunction) => {
   try {
     if (!req.user) throw new Error('Необходима авторизация')
     const router: any = req.originalUrl.split('/')[2]

@@ -5,11 +5,11 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { promises as fsPromise } from 'fs'
 import swaggerUi from 'swagger-ui-express'
-
+import { api } from './routers/index'
 const app = express()
 const port = process.env.PORT || 3000
 import { join, dirname } from 'path'
-import {readdirSync} from 'fs'
+import { readdirSync } from 'fs'
 import { fileURLToPath } from 'url'
 import swaggerAutogen from 'swagger-autogen'
 // import { SessionSwagger } from '../db/tables/session.entity'
@@ -47,17 +47,16 @@ const doc = {
         done: true
       }
     }
-  },
-  host: 'localhost:3000',
-  schemes: ['http'] 
+  }, 
+  host: 'localhost:3000', 
+  schemes: ['http']
 }
-
 
 // // путь и название генерируемого файла
 const outputFile = join(__dirname, '../output.json')
-console.log(outputFile) 
+console.log(outputFile)
 // // массив путей к роутерам
-// const endpointsFiles = readdirSync(join(__dirname, './routers/api')).map(apiName=> join(__dirname, `./routers/api/${apiName}`)) 
+// const endpointsFiles = readdirSync(join(__dirname, './routers/api')).map(apiName=> join(__dirname, `./routers/api/${apiName}`))
 
 // swaggerAutogen( {basePath: 'api', })(outputFile, endpointsFiles, doc).then(success => {
 //   if (success) {
@@ -81,7 +80,7 @@ async function start() {
     })
   )
   app.use(cors())
-  require('./routers')(app)
+  api(app)
 
   app.listen(+port, 'localhost', () => {
     console.log(`app start http://localhost:${port}`)

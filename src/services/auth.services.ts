@@ -1,4 +1,4 @@
-import usersService from './users.services'
+import {usersService} from './users.services'
 import { createSessions } from './sessions.services'
 import {LoginDto} from '../dto/auth/login.dto'
 import {CreateUserDto} from '../dto/users/createUser.dto'
@@ -16,4 +16,4 @@ class AuthService {
     return createSessions(newUser.get())
   }
 }
-export = new AuthService()
+export const authService = new AuthService()

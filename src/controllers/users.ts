@@ -1,6 +1,6 @@
 import { resError } from '../utils/resError'
 import { IRequestSession } from '../interface/requestSession'
-import usersService from '../services/users.services'
+import {usersService} from '../services/users.services'
 import { Response } from 'express'
 export class UsersController {
   static async getAll(req: IRequestSession, res: Response) {

@@ -28,4 +28,5 @@ class UsersService {
     return newUser
   }
 }
-export = new UsersService()
+export const usersService = new UsersService()
+ 

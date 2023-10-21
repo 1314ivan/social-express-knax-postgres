@@ -11,8 +11,8 @@
     "http"     
   ],
   "paths": {
-    "api/auth/login":{     
-      "post": {
+    "api/auth/login":{      
+      "post": {   
         "tags": [
           "auth"
         ],

@@ -1,7 +1,7 @@
 import { IRequestSession } from '../interface/requestSession'
 import {LoginDto} from '../dto/auth/login.dto'
 import {CreateUserDto} from '../dto/users/createUser.dto'
-import authService from '../services/auth.services'
+import {authService} from '../services/auth.services'
 import { delOne as delOneSessions } from '../services/sessions.services'
 import { Request, Response } from 'express'
 import { resError } from '../utils/resError'
