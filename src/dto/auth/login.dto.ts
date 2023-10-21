@@ -1,4 +1,4 @@
-export = class LoginDto {
+export class LoginDto {
   login: string
   password: string
   constructor(data: LoginDto) {

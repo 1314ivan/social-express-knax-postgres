@@ -5,7 +5,7 @@ exports.up = function (knex) {
     table.string("password",255)
 
   })
-}
+} 
 
 exports.down = function (knex) {
   return knex.schema.dropTable('users')

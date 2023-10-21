@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
     ])
     .returning('*')
 
-    rolesObj = Object.fromEntries(roles.map(el => [el.code, el.id]))
+  rolesObj = Object.fromEntries(roles.map(el => [el.code, el.id]))
 
   let routers = await knex('routers')
     .insert([
@@ -29,7 +29,7 @@ exports.seed = async function (knex) {
   const [admin] = await knex('users')
     .insert([{ login: 'test2', password: 'Welcome1', role_id: rolesObj.admin }])
     .returning('*')
-   await knex('permissions')
+  await knex('permissions')   
     .insert([
       ...routers.map(el => {
         return { role_id: rolesObj.admin, router_id: el.id, GET: true, POST: true, DELETE: true, PATCH: true }

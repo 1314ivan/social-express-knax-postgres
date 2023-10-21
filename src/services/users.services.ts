@@ -1,4 +1,4 @@
-import CreateUserDto from '../dto/users/createUser.dto'
+import { CreateUserDto } from '../dto/users/createUser.dto'
 import db from '../db/config'
 import { User } from '../db/tables/user.entity'
 import rolesService from './roles.services'

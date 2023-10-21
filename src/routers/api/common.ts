@@ -3,5 +3,5 @@ const router = express.Router()
 import {CommonController} from '../../controllers/common'
 
 
-export = router.get('/ping', CommonController.ping)
+module.exports = router.get('/ping', CommonController.ping)
      

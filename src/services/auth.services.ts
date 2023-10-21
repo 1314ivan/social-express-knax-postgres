@@ -1,7 +1,7 @@
 import usersService from './users.services'
 import { createSessions } from './sessions.services'
-import LoginDto from 'src/dto/auth/login.dto'
-import CreateUserDto from 'src/dto/users/createUser.dto'
+import {LoginDto} from '../dto/auth/login.dto'
+import {CreateUserDto} from '../dto/users/createUser.dto'
 class AuthService {
   async login(dto: LoginDto) {
     const user = await usersService.getOneBy('login', dto.login)
