@@ -2,4 +2,4 @@ import express from 'express'
 const router = express.Router()
 import { RolesController } from '../../controllers/roles'
 import rbac from '../../middleware/rbac.middleware'
-module.exports = router.post('/', rbac as any, RolesController.create as any)
+export default router.post('/', rbac as any, RolesController.create as any)

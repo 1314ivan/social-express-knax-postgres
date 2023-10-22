@@ -8,4 +8,7 @@ export class LoginDto {
     this.login = data.login
     this.password = data.password
   }
+  static swaggerLoginDto() {
+    return { name: 'login', exampleData: { login: 'ivan', password: ' 21222222' } }
+  }
 }

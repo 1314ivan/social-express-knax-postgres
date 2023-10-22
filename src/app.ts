@@ -9,10 +9,13 @@ import { api } from './routers/index'
 const app = express()
 const port = process.env.PORT || 3000
 const host = process.env.HOST || 'localhost'
-import { join, dirname } from 'path'
+import { join } from 'path'
 import { readdirSync } from 'fs'
-import { fileURLToPath } from 'url'
 import swaggerAutogen from 'swagger-autogen'
+import { LoginDto } from './dto/auth/login.dto'
+import { User } from './db/tables/user.entity'
+import { Session } from './db/tables/session.entity'
+import { CreateUserDto } from './dto/users/createUser.dto'
 // import { SessionSwagger } from '../db/tables/session.entity'
 
 const swaggerDoc = {
@@ -20,8 +23,12 @@ const swaggerDoc = {
     title: 'API',
     description: 'API'
   },
-  definitions: {
-  },
+  definitions: Object.fromEntries(
+    [LoginDto, User, Session, CreateUserDto].map(model => {
+      const { name, exampleData } = (model as any)[`swagger${model.name}`]()
+      return [name, exampleData]
+    })
+  ),
   host: `${host}:${port}`,
   schemes: ['http']
 }

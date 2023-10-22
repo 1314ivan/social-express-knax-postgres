@@ -16,7 +16,17 @@
         "tags": [
           "auth"
         ],
-        "description": "Some description...",
+        "description": "Авторизация",
+        "parameters": [
+          {
+            "name": "changes",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/login"
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -24,9 +34,22 @@
         }
       }
     },
-    "/register": {
+    "api/auth/register": {
       "post": {
-        "description": "",
+        "tags": [
+          "auth"
+        ],
+        "description": "Регистрация",
+        "parameters": [
+          {
+            "name": "changes",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userCreate"
+            }
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -79,6 +102,80 @@
           "default": {
             "description": ""
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "login": {
+      "type": "object",
+      "properties": {
+        "login": {
+          "type": "string",
+          "example": "ivan"
+        },
+        "password": {
+          "type": "string",
+          "example": " 21222222"
+        }
+      }
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 12
+        },
+        "login": {
+          "type": "string",
+          "example": "ivan"
+        },
+        "role_id": {
+          "type": "number",
+          "example": 2
+        }
+      }
+    },
+    "sessions": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 33
+        },
+        "created_at": {
+          "type": "string",
+          "example": "2023-01-16 10:15:24.053+03"
+        },
+        "updated_at": {
+          "type": "string",
+          "example": "2023-01-16 10:15:24.053+03"
+        },
+        "data": {
+          "type": "object",
+          "properties": {}
+        },
+        "user_id": {
+          "type": "number",
+          "example": 21
+        },
+        "session_id": {
+          "type": "string",
+          "example": "UkJR18TLAiJKE_N9KB5uz"
+        }
+      }
+    },
+    "userCreate": {
+      "type": "object",
+      "properties": {
+        "login": {
+          "type": "string",
+          "example": "ivan"
+        },
+        "password": {
+          "type": "string",
+          "example": " 21222222"
         }
       }
     }

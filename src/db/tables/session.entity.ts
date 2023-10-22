@@ -12,10 +12,15 @@ export class Session extends DefaultKeys {
   data!: IUserSession
   user_id!: number
   session_id!: string
-}
-export const SessionSwagger = {
-  user_id: {
-    text: 'id пользователя',
-    done: true
+  static swaggerSession() {
+    return {
+      name: 'sessions',
+      exampleData: Object.assign(this.swaggerDefaultKeys().exampleData, {
+        // todo data
+        data: {},
+        user_id: 21,
+        session_id: 'UkJR18TLAiJKE_N9KB5uz'
+      })
+    }
   }
 }

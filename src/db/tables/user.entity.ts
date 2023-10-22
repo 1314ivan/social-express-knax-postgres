@@ -14,15 +14,21 @@ export class User {
     this.password = data.password
     this.role_id = data.role_id
   }
+
   id!: number
   login!: string
   private password!: string
   role_id!: number
 
-   get(): IGetUser {
+  get(): IGetUser {
     return { id: this.id, login: this.login, role_id: this.role_id }
   }
-   isCorrectPassword(input: string) {
+
+  isCorrectPassword(input: string) {
     return input === this.password
+  }
+
+  static swaggerUser() {
+    return { name: 'user', exampleData: { id: 12, login: 'ivan', role_id: 2 } }
   }
 }

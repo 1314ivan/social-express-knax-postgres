@@ -6,15 +6,10 @@ import { delOne as delOneSessions } from '../services/sessions.services'
 import { Request, Response } from 'express'
 import { resError } from '../utils/resError'
 export  async function login(req: Request, res: Response){     
-    //const tag = api
-   // #swagger.tags = ['SomeTag']
-   // #swagger.path = `${tag}/auth/login`
-    // #swagger.description = 'Some description...'
-
     try {
 
       const sessionId = await authService.login(new LoginDto(req.body))
-      res.cookie('sessionId', sessionId).status(200).send('ok')
+      res.cookie('sessionId', sessionId).status(200).send({sessionId})
     } catch (err) {
       resError(res, err)
     }
@@ -22,7 +17,7 @@ export  async function login(req: Request, res: Response){
   export  async function register(req: Request, res: Response): Promise<void> {
     try {
       const sessionId = await authService.register(new CreateUserDto(req.body))
-      res.cookie('sessionId', sessionId).status(200).send('ok')
+      res.cookie('sessionId', sessionId).status(200).send({sessionId})
     } catch (err) {
       resError(res, err)
     }
@@ -30,7 +25,7 @@ export  async function login(req: Request, res: Response){
   export  async function logout(req: IRequestSession, res: Response): Promise<void> {
     try {
       await delOneSessions(req.sessionId)
-      res.clearCookie('sessionId').status(200).send('ok')
+      res.clearCookie('sessionId').status(200)
     } catch (err) {
       resError(res, err) 
     } 

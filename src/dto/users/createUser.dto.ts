@@ -1,8 +1,15 @@
-import {LoginDto} from '../auth/login.dto'
+import { LoginDto } from '../auth/login.dto'
 
 export class CreateUserDto extends LoginDto {
   constructor(data: LoginDto) {
     super(data)
     // TODO
+  }
+
+  static swaggerCreateUserDto() {
+    return {
+      name: 'userCreate',
+      exampleData: this.swaggerLoginDto().exampleData
+    }
   }
 }
