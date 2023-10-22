@@ -1,27 +1,37 @@
 {
-  "exclude": ["seeds/*",""],
+  // "exclude": ["seeds","node_modules","common"],
   "compilerOptions": {
-
-    // "removeComments": true,
-    "paths": {
-      "@app/*": ["src/*"]
-    },
-    // "moduleResolution": "node",
-    // "module": "commonjs",
-    // "declaration": true,
-    // "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "esModuleInterop": true,
+    "target": "ES2020",
+    "module": "CommonJS",
     "outDir": "./dist",
     "rootDir": "./src",
-    "baseUrl": ".",
-    "sourceMap": true,
-    "incremental": true,
-      "lib": [ 
-    "ES2020",  
-    "DOM"
-  ]
+    "strict": true,
+    "esModuleInterop": true
   },
+  "include": ["src/**/*.ts"],
+
+  // "compilerOptions": {
+
+  //   // "removeComments": true,
+  //   "paths": {
+  //     "@app/*": ["src/*"]
+  //   },
+  //   // "moduleResolution": "node",
+  //   // "module": "commonjs",
+  //   // "declaration": true,
+  //   // "allowSyntheticDefaultImports": true,
+  //   "strict": true,
+  //   "esModuleInterop": true,
+  //   "outDir": "./dist",
+  //   "rootDir": "./src",
+  //   "baseUrl": ".",
+  //   "sourceMap": true,
+  //   "incremental": true,
+  //     "lib": [ 
+  //   "ES2020",  
+  //   "DOM"
+  // ]
+  // },
   
 
 }

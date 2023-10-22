@@ -1,7 +1,7 @@
-import { IRequestSession } from 'src/interface/requestSession'
+import { IRequestSession } from '../interface/requestSession'
 import { Request, Response, NextFunction } from 'express'
 import { getOne } from '../services/sessions.services'
-import { IUserSession } from 'src/interface/userSesion.dto'
+import { IUserSession } from '../interface/userSesion.dto'
 export default async (req: IRequestSession, res: Response, next: NextFunction): Promise<void> => {
   try {
     const sessionId = req.cookies['sessionId']

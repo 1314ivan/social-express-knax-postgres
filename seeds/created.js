@@ -8,12 +8,12 @@ exports.seed = async function (knex) {
   await knex('routers').del()
   await knex('users').del()
   await knex('roles').del()
-
+  
   let roles = await knex('roles')   
     .insert([
       { name: 'Админ', code: 'admin' }, 
       { name: 'Пользователь', code: 'user' }
-    ]) 
+     ])   
     .returning('*')
 
   rolesObj = Object.fromEntries(roles.map(el => [el.code, el.id]))

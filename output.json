@@ -1,18 +1,18 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Todo API",
-    "description": "My todo API",
+    "title": "API",
+    "description": "API",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "http"     
+    "http"
   ],
   "paths": {
-    "api/auth/login":{      
-      "post": {   
+    "api/auth/login": {
+      "post": {
         "tags": [
           "auth"
         ],
@@ -48,8 +48,8 @@
       "get": {
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -58,66 +58,16 @@
       "post": {
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       },
       "get": {
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/{name}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "patch": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -125,69 +75,9 @@
     "/{id}": {
       "get": {
         "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
         "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "Todo": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "example": "1"
-        },
-        "text": {
-          "type": "string",
-          "example": "test"
-        },
-        "done": {
-          "type": "boolean",
-          "example": false
-        }
-      }
-    },
-    "Todos": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Todo"
-      }
-    },
-    "Text": {
-      "type": "object",
-      "properties": {
-        "text": {
-          "type": "string",
-          "example": "test"
-        }
-      }
-    },
-    "Changes": {
-      "type": "object",
-      "properties": {
-        "changes": {
-          "type": "object",
-          "properties": {
-            "text": {
-              "type": "string",
-              "example": "test"
-            },
-            "done": {
-              "type": "boolean",
-              "example": true
-            }
+          "default": {
+            "description": ""
           }
         }
       }
