@@ -25,8 +25,11 @@ export default router
     },
     login
   )
-  .post('/register', logoutMiddleware,    (req, res, next) => {
-    /**
+  .post(
+    '/register',
+    logoutMiddleware,
+    (req, res, next) => {
+      /**
      * #swagger.tags = ["auth"]
        #swagger.path = `api/auth/register`
        #swagger.description = "Регистрация"
@@ -38,6 +41,8 @@ export default router
         schema: { $ref: '#/definitions/userCreate' }}
        */
 
-    next()
-  }, register)
+      next()
+    },
+    register
+  )
   .delete('/logout', sessionChecker as any, logout as any)
