@@ -15,20 +15,24 @@ import swaggerAutogen from 'swagger-autogen'
 import { LoginDto } from './dto/auth/login.dto'
 import { User } from './db/tables/user.entity'
 import { Session } from './db/tables/session.entity'
+import { getAll } from './db/tables/GetAll.entity'
 import { CreateUserDto } from './dto/users/createUser.dto'
+import { SwaggerDef } from './swaggerdef'
 // import { SessionSwagger } from '../db/tables/session.entity'
 
+const SwaggerDefinitions = Object.fromEntries(
+  [LoginDto, User, Session, CreateUserDto, getAll].map(model => {
+    const { name, exampleData } = (model as any)[`swagger${model.name}`]()
+    return [name, exampleData]
+  }))
+
+const AdditionalSwaggerDefinitions = SwaggerDef.getDef()
 const swaggerDoc = {
   info: {
     title: 'API',
     description: 'API'
   },
-  definitions: Object.fromEntries(
-    [LoginDto, User, Session, CreateUserDto].map(model => {
-      const { name, exampleData } = (model as any)[`swagger${model.name}`]()
-      return [name, exampleData]
-    })
-  ),
+  definitions: {...SwaggerDefinitions, ...AdditionalSwaggerDefinitions},
   host: `${host}:${port}`,
   schemes: ['http']
 }

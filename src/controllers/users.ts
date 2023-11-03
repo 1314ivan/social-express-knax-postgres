@@ -6,7 +6,6 @@ export class UsersController {
   static async getAll(req: IRequestSession, res: Response) {
     try {
       const users = await usersService.getAll()
-      console.log(req.user)
       res.send(users).status(200)
     } catch (err) {
       resError(res, err)

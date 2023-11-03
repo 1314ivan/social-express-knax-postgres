@@ -5,7 +5,7 @@
     "description": "API",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "0.0.0.0:3000",
   "basePath": "/",
   "schemes": [
     "http"
@@ -28,8 +28,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "Токен sessionId",
+            "schema": {
+              "$ref": "#/definitions/sessionId"
+            }
           }
         }
       }
@@ -51,8 +54,17 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "Токен sessionId",
+            "schema": {
+              "$ref": "#/definitions/sessionId"
+            }
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/register_BadRequest"
+            },
+            "description": "Bad Request"
           }
         }
       }
@@ -71,8 +83,8 @@
       "get": {
         "description": "",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -85,12 +97,20 @@
             "description": ""
           }
         }
-      },
+      }
+    },
+    "api/users": {
       "get": {
-        "description": "",
+        "tags": [
+          "users"
+        ],
+        "description": "Вывод всех пользователей",
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "Массив пользователей",
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
           }
         }
       }
@@ -98,6 +118,14 @@
     "/{id}": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "default": {
             "description": ""
@@ -176,6 +204,45 @@
         "password": {
           "type": "string",
           "example": " 21222222"
+        }
+      }
+    },
+    "users": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "login": {
+          "type": "string",
+          "example": "user"
+        },
+        "password": {
+          "type": "string",
+          "example": "pa$$w0rd"
+        },
+        "role_id": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    },
+    "sessionId": {
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "example": "Ug5xxhpx_K3bK_k5AE3w1"
+        }
+      }
+    },
+    "register_BadRequest": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "Данный логин уже занят"
         }
       }
     }

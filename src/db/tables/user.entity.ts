@@ -4,8 +4,15 @@ export interface IGetUser {
   role_id: number
 }
 
+export interface UserData {
+  id: number;
+  login: string;
+  password: string;
+  role_id: number;
+}
+
 export class User {
-  constructor(data: User) {
+  constructor(data: UserData) {
     if (!data) return
     if (data.id) {
       this.id = data.id

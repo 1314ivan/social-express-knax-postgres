@@ -4,10 +4,11 @@ import { User } from '../db/tables/user.entity'
 import rolesService from './roles.services'
 
 class UsersService {
-  async getAll() {
+  async getAll(): Promise<User[] | []> {
     const users = await db.select().table('users')
     return users
   }
+  
   async getOneBy(by: 'login' | 'id', value: string | number): Promise<User | null> {
     const user = await db
       .select()

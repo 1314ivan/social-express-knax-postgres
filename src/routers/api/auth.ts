@@ -19,6 +19,10 @@ export default router
           type: 'object',
           required: true,
           schema: { $ref: '#/definitions/login' }}
+        #swagger.responses[200] = {
+          description: 'Токен sessionId',
+          schema: { $ref: '#/definitions/sessionId' }
+        }
          */
 
       next()
@@ -39,6 +43,14 @@ export default router
         type: 'object',
         required: true,
         schema: { $ref: '#/definitions/userCreate' }}
+       }
+       #swagger.responses[200] = {
+          description: 'Токен sessionId',
+          schema: { $ref: '#/definitions/sessionId' }
+       }
+       #swagger.responses[400] = {
+          schema: { $ref: '#/definitions/register_BadRequest' }
+       }
        */
 
       next()
